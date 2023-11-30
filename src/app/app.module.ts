@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookModule } from './book/book.module';
 import { EditorialModule } from './editorial/editorial.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditorialModule } from './editorial/editorial.module';
     BrowserModule,
     AppRoutingModule,
     BookModule,
-    EditorialModule
+    EditorialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
