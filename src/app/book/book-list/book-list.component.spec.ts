@@ -8,7 +8,7 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { BookService } from "../book.service";
 import { Book } from "../book";
 import { Editorial } from 'src/app/editorial/editorial';
-import { faker } from '@faker-js/faker';}
+import { faker } from '@faker-js/faker';
 
 describe('BookListComponent', () => {
   let component: BookListComponent;
@@ -52,4 +52,53 @@ describe('BookListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have 10 <div.col.mb-2> elements', () => {
+    expect(debug.queryAll(By.css('div.col.mb-2'))).toHaveSize(10)
+  });
+
+  it('should have 10 <card.p-2> elements', () => {
+    expect(debug.queryAll(By.css('div.card.p-2'))).toHaveSize(10)
+  });
+
+  it('should have 10 <img> elements', () => {
+    expect(debug.queryAll(By.css('img'))).toHaveSize(10)
+  });
+
+  it('should have 10 <div.card-body> elements', () => {
+    expect(debug.queryAll(By.css('div.card-body'))).toHaveSize(10)
+  });
+
+  it('should have the corresponding src to the book image and alt to the book name', () => {
+    debug.queryAll(By.css('img')).forEach((img, i) => {
+      expect(img.attributes['src']).toEqual(
+        component.books[i].image)
+
+      expect(img.attributes['alt']).toEqual(
+        component.books[i].name)
+    })
+  });
+
+  it('should have h5 tag with the book.name', () => {
+    debug.queryAll(By.css('h5.card-title')).forEach((h5, i) => {
+      expect(h5.nativeElement.textContent).toContain(component.books[i].name)
+    });
+  });
+
+  it('should have p tag with the book.editorial.name', () => {
+    debug.queryAll(By.css('p.card-text')).forEach((p, i) => {
+      expect(p.nativeElement.textContent).toContain(component.books[i].editorial.name)
+    });
+  });
+
+  it('should have 9 <div.col.mb-2> elements and the deleted book should not exist', () => {
+    const book = component.books.pop()!;
+    fixture.detectChanges();
+    expect(debug.queryAll(By.css('div.col.mb-2'))).toHaveSize(9)
+
+    debug.queryAll(By.css('div.col.mb-2')).forEach((selector, i) => {
+      expect(selector.nativeElement.textContent).not.toContain(book.name);
+    });
+  });
+
 });
