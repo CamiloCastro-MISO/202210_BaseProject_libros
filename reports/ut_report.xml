@@ -1,10 +1,13 @@
 <testExecutions version="1">
+  <file path="src/app/book/book.service.spec.ts">
+    <testCase name="Service: Book should ..." duration="12"/>
+  </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="30"/>
+    <testCase name="AppComponent should create the app" duration="33"/>
     <testCase name="AppComponent should have as title 'base-project'" duration="5"/>
   </file>
   <file path="src/app/book/book-list/book-list.component.spec.ts">
-    <testCase name="BookListComponent should create" duration="46">
+    <testCase name="BookListComponent should create" duration="45">
       <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[BookService -&gt; HttpClient -&gt; HttpClient]: 
   NullInjectorError: No provider for HttpClient!
 error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'BookService', 'HttpClient', 'HttpClient' ] })
@@ -26,26 +29,6 @@ Error: Expected undefined to be truthy.
     at UserContext.&lt;anonymous&gt; (src/app/book/book-list/book-list.component.spec.ts:26:23)
     at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
     at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
-</failure>
-    </testCase>
-  </file>
-  <file path="src/app/book/book.service.spec.ts">
-    <testCase name="Service: Book should ..." duration="2">
-      <failure message="Error">NullInjectorError: R3InjectorError(DynamicTestModule)[BookService -&gt; HttpClient -&gt; HttpClient]: 
-  NullInjectorError: No provider for HttpClient!
-error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'BookService', 'HttpClient', 'HttpClient' ] })
-NullInjectorError: R3InjectorError(DynamicTestModule)[BookService -&gt; HttpClient -&gt; HttpClient]: 
-  NullInjectorError: No provider for HttpClient!
-    at NullInjector.get (node_modules/@angular/core/fesm2015/core.mjs:11120:1)
-    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11287:1)
-    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11287:1)
-    at injectInjectorOnly (node_modules/@angular/core/fesm2015/core.mjs:4765:1)
-    at ɵɵinject (node_modules/@angular/core/fesm2015/core.mjs:4769:1)
-    at Object.BookService_Factory [as factory] (ng:///BookService/ɵfac.js:4:39)
-    at R3Injector.hydrate (node_modules/@angular/core/fesm2015/core.mjs:11457:1)
-    at R3Injector.get (node_modules/@angular/core/fesm2015/core.mjs:11276:1)
-    at NgModuleRef.get (node_modules/@angular/core/fesm2015/core.mjs:21832:1)
-    at TestBedRender3.inject (node_modules/@angular/core/fesm2015/testing.mjs:1719:1)
 </failure>
     </testCase>
   </file>
