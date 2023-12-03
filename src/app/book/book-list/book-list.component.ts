@@ -10,6 +10,7 @@ import { BookService } from '../book.service';
 export class BookListComponent implements OnInit {
 
   books: Array<Book> = [];
+  selected: Boolean = false; //Inicializamos la variable selected en false y luego cuando el usuario selecciona un libro, le cambiamos el valor a true.
 
   constructor(private bookService: BookService) { }
 
